@@ -1,0 +1,32 @@
+﻿<Window x:Class="MyListView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyListView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Grid Margin="0,0,0,0">
+        <TextBox x:Name="FullName" 
+                 Margin="38,32,442,0" TextWrapping="Wrap" 
+                 Text="Full Name" VerticalAlignment="Top"/>
+        <TextBox x:Name="Position" 
+                 Margin="38,55,442,0" TextWrapping="Wrap" VerticalAlignment="Top" 
+                 Text="Position"/>
+        <TextBox x:Name="Salary" 
+                 Margin="38,78,442,0" TextWrapping="Wrap" 
+                 Text="Salary" VerticalAlignment="Top"/>
+        <ListView x:Name="ListViewDisplayStaff" Margin="182,17,118,217" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Full Name" DisplayMemberBinding= "{Binding StaffName}" />
+                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding StaffPosition}"/>
+                    <GridViewColumn Header="Salary" DisplayMemberBinding="{Binding StaffSalary}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="AddStaff" Content="Add Staff" 
+                Margin="38,107,442,0" VerticalAlignment="Top" PreviewMouseDown="AddStaff_PreviewMouseDown"/>
+
+    </Grid>
+</Window>
