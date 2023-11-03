@@ -26,7 +26,7 @@
                Margin="10,106,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" 
                Width="100"  Height="100" Source="/staff.jpg" Stretch="Fill"/>
 
-        <ListView x:Name="ListViewDisplayStaff" Margin="162,10,10,50" TabIndex="6" >
+        <ListView x:Name="ListViewDisplayStaff" Margin="162,10,10,50" TabIndex="6" SelectionChanged="ListViewDisplayStaff_SelectionChanged" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Full Name" DisplayMemberBinding= "{Binding StaffName}" />

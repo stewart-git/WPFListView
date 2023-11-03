@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -50,7 +51,16 @@ namespace MyListView
             Position.Clear(); Position.Foreground = Brushes.CadetBlue; Position.Text = "Enter Staff Position";     
             Salary.Clear(); Salary.Foreground = Brushes.CadetBlue; Salary.Text = "Enter Current Salary";
         }
-
+        private void ListViewDisplayStaff_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (ListViewDisplayStaff.SelectedIndex != -1)
+            {
+                int indx = ListViewDisplayStaff.SelectedIndex;
+                FullName.Text = QueueStaff.ElementAt(indx).GetName();
+                Position.Text = QueueStaff.ElementAt(indx).GetPosition();
+                Salary.Text = QueueStaff.ElementAt(indx).GetSalary().ToString();
+            }
+        }
         private void FullName_GotFocus(object sender, RoutedEventArgs e)
         {
             FullName.Clear(); FullName.Foreground = Brushes.Black;
@@ -65,5 +75,7 @@ namespace MyListView
         {
             Salary.Clear(); Salary.Foreground = Brushes.Black;
         }
+
+
     }
 }
