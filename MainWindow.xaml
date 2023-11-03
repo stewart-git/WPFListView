@@ -5,18 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyListView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600">
+        Title="MainWindow" Height="250" Width="500">
     <Grid Margin="0,0,0,0">
         <TextBox x:Name="FullName" 
-                 Margin="38,32,442,0" TextWrapping="Wrap" 
-                 Text="Full Name" VerticalAlignment="Top"/>
+                 Margin="10,10,0,0" TextWrapping="Wrap" 
+                 Text="Enter Full Name" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                 Width="123" Height="20" Foreground="CadetBlue" GotFocus="FullName_GotFocus" TabIndex="0"/>
         <TextBox x:Name="Position" 
-                 Margin="38,55,442,0" TextWrapping="Wrap" VerticalAlignment="Top" 
-                 Text="Position"/>
+                 Margin="10,33,0,0" TextWrapping="Wrap" 
+                 Text="Enter Staff Position" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                 Width="123" Height="20" Foreground="CadetBlue" GotFocus="Position_GotFocus" TabIndex="1"/>
         <TextBox x:Name="Salary" 
-                 Margin="38,78,442,0" TextWrapping="Wrap" 
-                 Text="Salary" VerticalAlignment="Top"/>
-        <ListView x:Name="ListViewDisplayStaff" Margin="182,17,118,217" >
+                 Margin="10,56,0,0" TextWrapping="Wrap" 
+                 Text="Enter Current Salary" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                 Width="123" Height="20" Foreground="CadetBlue" GotFocus="Salary_GotFocus" TabIndex="2"/>
+        <Button x:Name="AddStaff" Content="Add Staff" 
+                Margin="10,81,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                Width="123" Height="20" PreviewMouseDown="AddStaff_PreviewMouseDown" TabIndex="3"/>
+        <Image x:Name="staffImage" 
+               Margin="10,106,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" 
+               Width="100"  Height="100" Source="/staff.jpg" Stretch="Fill"/>
+
+        <ListView x:Name="ListViewDisplayStaff" Margin="162,10,10,50" TabIndex="6" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Full Name" DisplayMemberBinding= "{Binding StaffName}" />
@@ -25,8 +35,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="AddStaff" Content="Add Staff" 
-                Margin="38,107,442,0" VerticalAlignment="Top" PreviewMouseDown="AddStaff_PreviewMouseDown"/>
-
     </Grid>
 </Window>
